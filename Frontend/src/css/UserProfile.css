@@ -1,0 +1,169 @@
+/* Container styling */
+.UserProfile-container {
+    width: 100%;
+    min-height: 50vh;
+    margin: 0;
+    padding: 0;
+    background: #fff8f0;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Header styling */
+.UserProfile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(90deg, #ff404c, #ffa94d);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.UserProfile-header-left .UserProfile-back-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.UserProfile-header-left .UserProfile-back-button:hover {
+    background-color: white;
+    color: #ff404c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.UserProfile-header-right h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content styling */
+.UserProfile-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.UserProfile-details {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Profile picture styling */
+.UserProfile-details img.user-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    object-fit: cover;
+    border: 4px solid #ffa94d;
+    box-shadow: 0 5px 15px rgba(255, 169, 77, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.UserProfile-details img.user-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Profile information styling */
+.UserProfile-details p {
+    font-size: 18px;
+    margin: 20px 0;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.UserProfile-details p:hover {
+    background-color: #fff8f0;
+    transform: translateX(5px);
+    border-radius: 8px;
+}
+
+.UserProfile-details strong {
+    color: #ff404c;
+    font-size: 18px;
+    margin-right: 15px;
+    min-width: 120px;
+    text-align: right;
+}
+
+/* QR code styling */
+.qr-code {
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+}
+
+/* Animation for content loading */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .UserProfile-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .UserProfile-header-right h2 {
+        font-size: 24px;
+    }
+
+    .UserProfile-details {
+        padding: 20px;
+    }
+
+    .UserProfile-details img.user-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .UserProfile-details p {
+        font-size: 16px;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .UserProfile-details strong {
+        min-width: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .UserProfile-main {
+        padding: 20px 10px;
+    }
+
+    .UserProfile-header-right h2 {
+        font-size: 20px;
+    }
+
+    .UserProfile-details strong {
+        font-size: 16px;
+    }
+}
