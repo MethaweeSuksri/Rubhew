@@ -126,26 +126,3 @@ Frontend/
   src/CustomerUnpaidOrders.js what you are owed
   src/UserProfile.js         account
 ```
-
-## Known issues
-
-Worth reading before building on this.
-
-The seeding behaviour described above destroys data on every restart. `requireLogin` is defined
-in `app.js` but is not applied to any route; most handlers check the session inline, but
-`getOrderById`, `getOrderedById` and `addprice` check neither session nor ownership, so anyone
-holding an order ID can read that order or overwrite its prices. `GET /home` returns whole user
-documents including the bcrypt password hash, because the query has no projection. The session
-secret is hardcoded in `app.js` and sessions are held in the default in-memory store, so they do
-not survive a restart.
-
-Accepting an order checks the carrier's remaining capacity and decrements it in two separate
-awaits with no transaction, so simultaneous orders can both pass the check. `/addprice` matches
-items by name within an order, so an order containing the same item twice only gets one of them
-priced. The fee description shown on the carrier card in `Home.js` says the base rate covers the
-first item and the per-item rate applies to each one after, but `addprice` charges the per-item
-rate on every unit including the first — the two disagree and the pricing code is the one that
-runs.
-
-There are no backend tests. The single frontend test is the unmodified Create React App template,
-which asserts the page contains "learn react" and therefore fails.
